@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const { stringify } = require('querystring');
 
 
 
@@ -62,15 +63,17 @@ function parseCsvToJSON(data) {
         object[key] = value;
         
         }
+        // 10) aggiungere l' oggetto all' array temporaneo
+        console.log('10------------------------');
+        tempArray.push(object);
+        console.log('tempArray:',tempArray);
     }
-     // 10) aggiungere l' oggetto all' array temporaneo
-
     // 11) fare stringify dell' array temporaneo
-
+    console.log('11------------------------');
+    const jsonString = JSON.stringify(tempArray);
     // 12) ritornare la stringa con json
-
-                
-
+    console.log('12------------------------');
+    return jsonString;
 }
 
 function writeJsonToFile(json) {
